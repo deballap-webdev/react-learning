@@ -6,6 +6,20 @@ import "./App.css";
 
 function App() {
   const [count, setCount] = useState(0);
+  const handleNameChange = () => {
+    const names = [
+      "Debbie",
+      "Loveth",
+      "Victory",
+      "Divine",
+      "Victor",
+      "Kevin",
+      "Luke",
+      "Dave",
+    ];
+    const randomNum = Math.floor(Math.random() * 8);
+    return names[randomNum];
+  };
 
   return (
     <>
@@ -17,9 +31,7 @@ function App() {
         </div>
         <div>
           <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test it. <code>HMR</code>
-          </p>
+          <p>Hello {handleNameChange()}!</p>
         </div>
         <button
           type="button"
