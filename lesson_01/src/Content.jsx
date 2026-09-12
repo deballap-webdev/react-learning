@@ -16,10 +16,25 @@ const Content = () => {
     return names[randomNum];
   };
 
+  const handleClick = () => {
+    console.log("You clicked it");
+  };
+
+  const handleClick2 = (name) => {
+    console.log(`${name} clicked it`);
+  };
+  const handleClick3 = (event) => {
+    console.log(event.target.innerText);
+  };
+
   return (
     <main>
-      <p>Hello {handleNameChange()}!</p>
+      <p onDoubleClick={handleClick}>Hello {handleNameChange()}!</p>
+      <button onClick={handleClick}>Click it</button>
+      <button onClick={() => handleClick2("Debbie")}>Click it</button>
+      <button onClick={handleClick3}>Click it</button>
     </main>
   );
 };
+
 export default Content;
