@@ -1,6 +1,9 @@
 import React from "react";
 
 const Content = () => {
+  const { useState } = React;
+  const [name, setName] = useState("Debbie");
+  const [count, setCount] = useState(0);
   const handleNameChange = () => {
     const names = [
       "Debbie",
@@ -13,26 +16,25 @@ const Content = () => {
       "Dave",
     ];
     const randomNum = Math.floor(Math.random() * 8);
-    return names[randomNum];
+    setName(names[randomNum]);
   };
 
   const handleClick = () => {
-    console.log("You clicked it");
+    setCount(count + 1);
+    setCount(count + 1);
+    console.log(count);
   };
 
   const handleClick2 = (name) => {
-    console.log(`${name} clicked it`);
-  };
-  const handleClick3 = (event) => {
-    console.log(event.target.innerText);
+    console.log(count);
   };
 
   return (
     <main>
-      <p onDoubleClick={handleClick}>Hello {handleNameChange()}!</p>
+      <p onDoubleClick={handleClick}>Hello {name}!</p>
+      <button onClick={handleNameChange}>Change Name</button>
       <button onClick={handleClick}>Click it</button>
-      <button onClick={() => handleClick2("Debbie")}>Click it</button>
-      <button onClick={handleClick3}>Click it</button>
+      <button onClick={handleClick2}>Click it</button>
     </main>
   );
 };
