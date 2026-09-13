@@ -1,40 +1,61 @@
-import React from "react";
-
+import React, { useState } from "react";
 const Content = () => {
-  const { useState } = React;
-  const [name, setName] = useState("Debbie");
-  const [count, setCount] = useState(0);
-  const handleNameChange = () => {
-    const names = [
-      "Debbie",
-      "Loveth",
-      "Victory",
-      "Divine",
-      "Victor",
-      "Kevin",
-      "Luke",
-      "Dave",
-    ];
-    const randomNum = Math.floor(Math.random() * 8);
-    setName(names[randomNum]);
+  const [items, setItems] = useState([
+    {
+      id: 1,
+      checked: false,
+      item: "One half pound bag of Cocoa Covered Almonds Unsalted",
+    },
+    {
+      id: 2,
+      checked: true,
+      item: "Item 2",
+    },
+    {
+      id: 3,
+      checked: false,
+      item: "Item 3",
+    },
+  ]);
+
+  const handleCheck = (id) => {
+    const listItems = items.map((item) =>
+      item.id === id ? { ...item, checked: !item.checked } : item,
+    );
+    setItems(listItems);
+    localStorage.setItem("grocerylist", JSON.stringify(listItems));
   };
 
-  const handleClick = () => {
-    setCount(count + 1);
-    setCount(count + 1);
-    console.log(count);
-  };
-
-  const handleClick2 = (name) => {
-    console.log(count);
+  const handleDelete = (id) => {
+    const listItems = items.filter((item) => item.id !== id);
+    setItems(listItems);
+    localStorage.setItem("groceryList", JSON.stringify(listItems));
   };
 
   return (
     <main>
-      <p onDoubleClick={handleClick}>Hello {name}!</p>
-      <button onClick={handleNameChange}>Change Name</button>
-      <button onClick={handleClick}>Click it</button>
-      <button onClick={handleClick2}>Click it</button>
+      {items.length ? (
+        <ul>
+          {items.map((item) => (
+            <li className="item" key={item.id}>
+              <input
+                type="checkbox"
+                checked={item.checked}
+                onChange={() => handleCheck(item.id)}
+              />
+              <label
+                style={item.checked ? { textDecoration: "line-through" } : null}
+                onDoubleClick={() => handleCheck(item.id)}
+              >
+                {item.item}
+              </label>
+              <button onClick={() => handleDelete(item.id)}>Delete</button>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p style={{ marginTop: "2rem" }}>Your List is Empty.</p>
+      )}
     </main>
   );
 };
