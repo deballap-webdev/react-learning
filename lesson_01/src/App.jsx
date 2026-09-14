@@ -1,45 +1,72 @@
 import Header from "./Header";
+import SearchItem from "./SearchItem";
 import Content from "./Content";
 import Footer from "./Footer";
 import React from "react";
+import AddItem from "./AddItem";
 function App() {
-  const { useState } = React;
-  const [items, setItems] = useState([
-    {
-      id: 1,
-      checked: false,
-      item: "One half pound bag of Cocoa Covered Almonds Unsalted",
-    },
-    {
-      id: 2,
-      checked: true,
-      item: "Item 2",
-    },
-    {
-      id: 3,
-      checked: false,
-      item: "Item 3",
-    },
-  ]);
+  const { useState, useRef } = React;
+  const [items, setItems] = useState(
+    JSON.parse(localStorage.getItem("grocery-list"))
+      ? JSON.parse(localStorage.getItem("grocery-list"))
+      : [],
+  );
+
+  const [newItem, setNewItem] = useState("");
+  const [search, setSearch] = useState("");
+
+  const setAndSaveItems = (newItems) => {
+    setItems(newItems);
+    localStorage.setItem("grocery-list", JSON.stringify(newItems));
+  };
+
+  const addItem = (item) => {
+    const id = items.length ? items[items.length - 1].id + 1 : 0;
+    const listItems = [
+      ...items,
+      {
+        id,
+        checked: false,
+        item,
+      },
+    ];
+    setAndSaveItems(listItems);
+  };
 
   const handleCheck = (id) => {
     const listItems = items.map((item) =>
       item.id === id ? { ...item, checked: !item.checked } : item,
     );
-    setItems(listItems);
-    localStorage.setItem("grocerylist", JSON.stringify(listItems));
+    setAndSaveItems(listItems);
   };
 
   const handleDelete = (id) => {
     const listItems = items.filter((item) => item.id !== id);
-    setItems(listItems);
-    localStorage.setItem("groceryList", JSON.stringify(listItems));
+    setAndSaveItems(listItems);
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!newItem.trim()) return;
+    addItem(newItem);
+    setNewItem("");
+  };
+
   return (
     <div className="App">
       <Header heading="Grocery List" />
+      <AddItem
+        newItem={newItem}
+        setNewItem={setNewItem}
+        handleSubmit={handleSubmit}
+      />
+      <SearchItem search={search} setSearch={setSearch} />
       <Content
-        items={items}
+        items={items.filter((item) =>
+          item.item
+            .toLocaleLowerCase()
+            .includes(search.toLocaleLowerCase().trim()),
+        )}
         handleDelete={handleDelete}
         handleCheck={handleCheck}
       />
