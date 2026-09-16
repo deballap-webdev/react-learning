@@ -5,20 +5,19 @@ import Footer from "./Footer";
 import React from "react";
 import AddItem from "./AddItem";
 function App() {
-  const { useState, useRef } = React;
+  const API_UEL = `http://localhost:3500/items`;
+
+  const { useState, useEffect } = React;
   const [items, setItems] = useState(
-    JSON.parse(localStorage.getItem("grocery-list"))
-      ? JSON.parse(localStorage.getItem("grocery-list"))
-      : [],
+    JSON.parse(localStorage.getItem("grocery-list") || []),
   );
 
   const [newItem, setNewItem] = useState("");
   const [search, setSearch] = useState("");
 
-  const setAndSaveItems = (newItems) => {
-    setItems(newItems);
-    localStorage.setItem("grocery-list", JSON.stringify(newItems));
-  };
+  useEffect(() => {
+    localStorage.setItem("grocery-list", JSON.stringify(items));
+  }, [items]);
 
   const addItem = (item) => {
     const id = items.length ? items[items.length - 1].id + 1 : 0;
@@ -30,19 +29,19 @@ function App() {
         item,
       },
     ];
-    setAndSaveItems(listItems);
+    setItems(listItems);
   };
 
   const handleCheck = (id) => {
     const listItems = items.map((item) =>
       item.id === id ? { ...item, checked: !item.checked } : item,
     );
-    setAndSaveItems(listItems);
+    setItems(listItems);
   };
 
   const handleDelete = (id) => {
     const listItems = items.filter((item) => item.id !== id);
-    setAndSaveItems(listItems);
+    setItems(listItems);
   };
 
   const handleSubmit = (e) => {
