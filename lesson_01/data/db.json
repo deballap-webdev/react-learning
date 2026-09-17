@@ -1,10 +1,10 @@
 {
   "items": [
-    { "id": 1, "checked": false, "item": "Almonds" },
-    { "id": 2, "checked": false, "item": "Pizza" },
-    { "id": 3, "checked": false, "item": "Bread" },
-    { "id": 4, "checked": false, "item": "Milk" },
-    { "id": 5, "checked": false, "item": "Eggs" },
-    { "id": 6, "checked": false, "item": "Chips" }
-  ]
+    {
+      "id": "ZJq3Jjd9BSc",
+      "checked": true,
+      "item": "land"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
