@@ -1,6 +1,6 @@
 import React from "react";
 
-const NavLink = ({
+const NavButton = ({
   section = "",
   getAndSetList,
   currentSection,
@@ -9,7 +9,7 @@ const NavLink = ({
 }) => {
   const isActive = currentSection === section;
   return (
-    <a
+    <button
       aria-label={`Switch to ${section} section`}
       id={section}
       onClick={() => {
@@ -22,8 +22,8 @@ const NavLink = ({
       style={isActive ? { backgroundColor: "#000", color: "#fff" } : null}
     >
       {section}
-    </a>
+    </button>
   );
 };
 
-export default NavLink;
+export default NavButton;

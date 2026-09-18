@@ -6,7 +6,7 @@ import js from "@eslint/js";
 const App = () => {
   const { useState, useEffect } = React;
 
-  const [items, setItems] = useState([[]]);
+  const [items, setItems] = useState([]);
   const [fetchError, setFetchError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [currentSection, setCurrentSection] = useState("users");
@@ -14,7 +14,7 @@ const App = () => {
   useEffect(() => {
     const mySection = JSON.parse(localStorage.getItem("myCurrentSection"));
     setCurrentSection(mySection);
-    getAndSetList(currentSection);
+    getAndSetList(mySection);
   }, []);
 
   const getAndSetList = (endpoint) => {
