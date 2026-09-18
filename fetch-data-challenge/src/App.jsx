@@ -2,7 +2,6 @@ import React from "react";
 import Nav from "./Nav";
 import Content from "./Content";
 import apiRequest from "./apiRequest";
-import js from "@eslint/js";
 const App = () => {
   const { useState, useEffect } = React;
 
