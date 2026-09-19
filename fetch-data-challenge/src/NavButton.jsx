@@ -2,7 +2,6 @@ import React from "react";
 
 const NavButton = ({
   section = "",
-  getAndSetList,
   currentSection,
   setCurrentSection,
   fetchError,
@@ -16,7 +15,6 @@ const NavButton = ({
         if (currentSection !== section || fetchError) {
           setCurrentSection(section);
           localStorage.setItem("myCurrentSection", JSON.stringify(section));
-          getAndSetList(section);
         }
       }}
       style={isActive ? { backgroundColor: "#000", color: "#fff" } : null}

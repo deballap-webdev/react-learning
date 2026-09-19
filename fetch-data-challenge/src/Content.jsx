@@ -4,11 +4,20 @@ const Content = ({ listArray = [] }) => {
   return (
     <>
       {listArray.length ? (
-        <ul>
-          {listArray.map((item) => (
-            <li key={item.key}>{item.content}</li>
-          ))}
-        </ul>
+        <table>
+          {listArray.map((item, index) => {
+            console.log(index);
+            return (
+              <tbody key={index + 1}>
+                <tr>
+                  {Object.keys(item).map((key) => (
+                    <td>{JSON.stringify(item[key])}</td>
+                  ))}
+                </tr>
+              </tbody>
+            );
+          })}
+        </table>
       ) : (
         <p>"List Is Empty"</p>
       )}

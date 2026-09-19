@@ -1,7 +1,7 @@
 import React from "react";
-import NavLink from "./NavLink";
+import NavButton from "./NavButton";
 
-const Nav = ({
+const Form = ({
   getAndSetList,
   currentSection,
   setCurrentSection,
@@ -13,9 +13,9 @@ const Nav = ({
     { section: "comments", key: 3 },
   ];
   return (
-    <nav>
+    <form>
       {sectionArray.map((section) => (
-        <NavLink
+        <NavButton
           key={section.key}
           section={section.section}
           getAndSetList={getAndSetList}
@@ -24,8 +24,8 @@ const Nav = ({
           fetchError={fetchError}
         />
       ))}
-    </nav>
+    </form>
   );
 };
 
-export default Nav;
+export default Form;

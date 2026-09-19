@@ -12,13 +12,13 @@ main {
   margin-top: 20px;
 }
 
-nav {
+form {
   width: 100%;
   display: flex;
 }
 
 button {
-  flex-grow: 1;
+  width: 33.333%;
   border: 1px solid black;
   display: grid;
   place-content: center;
@@ -27,7 +27,7 @@ button {
 
 button:hover {
   color: #fff;
-  background-color: #000;
+  background-color: rgb(69, 68, 68);
 }
 
 li {

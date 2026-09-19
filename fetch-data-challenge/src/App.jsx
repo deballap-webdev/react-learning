@@ -1,5 +1,5 @@
 import React from "react";
-import Nav from "./Nav";
+import Form from "./Form";
 import Content from "./Content";
 import apiRequest from "./apiRequest";
 const App = () => {
@@ -8,34 +8,31 @@ const App = () => {
   const [items, setItems] = useState([]);
   const [fetchError, setFetchError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [currentSection, setCurrentSection] = useState("users");
+  const [currentSection, setCurrentSection] = useState("");
 
   useEffect(() => {
-    const mySection = JSON.parse(localStorage.getItem("myCurrentSection"));
+    const mySection =
+      JSON.parse(localStorage.getItem("myCurrentSection")) ||
+      currentSection ||
+      "users";
     setCurrentSection(mySection);
-    getAndSetList(mySection);
-  }, []);
-
-  const getAndSetList = (endpoint) => {
-    apiRequest(endpoint).then((jsonData) => {
+    setIsLoading(true);
+    apiRequest(mySection).then((jsonData) => {
       if (jsonData.error) {
         setFetchError(jsonData.error);
         setIsLoading(false);
         return;
       }
-      const myData = jsonData.map((data) => {
-        return { key: data.id, content: JSON.stringify(data) };
-      });
-      setItems(myData);
+
+      setItems(jsonData);
       setFetchError(null);
       setIsLoading(false);
     });
-  };
+  }, [currentSection]);
 
   return (
     <div>
-      <Nav
-        getAndSetList={getAndSetList}
+      <Form
         currentSection={currentSection}
         setCurrentSection={setCurrentSection}
         fetchError={fetchError}
