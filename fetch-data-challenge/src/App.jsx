@@ -4,7 +4,6 @@ import Content from "./Content";
 import apiRequest from "./apiRequest";
 const App = () => {
   const { useState, useEffect } = React;
-
   const [items, setItems] = useState([]);
   const [fetchError, setFetchError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);

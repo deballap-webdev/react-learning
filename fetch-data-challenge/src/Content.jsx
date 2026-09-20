@@ -6,12 +6,12 @@ const Content = ({ listArray = [] }) => {
       {listArray.length ? (
         <table>
           {listArray.map((item, index) => {
-            console.log(index);
+            console.log(item);
             return (
               <tbody key={index + 1}>
                 <tr>
-                  {Object.keys(item).map((key) => (
-                    <td>{JSON.stringify(item[key])}</td>
+                  {Object.keys(item).map((key, index) => (
+                    <td key={index + 1}>{JSON.stringify(item[key])}</td>
                   ))}
                 </tr>
               </tbody>

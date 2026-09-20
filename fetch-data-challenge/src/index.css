@@ -8,13 +8,20 @@ html {
   font-size: 20px;
 }
 
+body {
+  min-height: 100vh;
+}
+
 main {
-  margin-top: 20px;
+  margin-top: 60px;
+  width: 100%;
 }
 
 form {
-  width: 100%;
+  width: 100vw;
   display: flex;
+  position: fixed;
+  top: 0;
 }
 
 button {
@@ -33,4 +40,13 @@ button:hover {
 li {
   list-style: disc;
   margin: 10px 0 0 40px;
+}
+
+td {
+  border: 1px solid black;
+  padding: 0.25em;
+}
+
+table {
+  overflow-y: auto;
 }

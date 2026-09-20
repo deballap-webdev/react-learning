@@ -2,14 +2,14 @@ import React from "react";
 
 const ColorDisplay = ({ color }) => {
   return (
-    <div
+    <section
       className="display"
       style={{
         backgroundColor: color,
       }}
     >
-      {color ? color : "Empty Value"}
-    </div>
+      <p>{color ? color : "Empty Value"}</p>
+    </section>
   );
 };
 

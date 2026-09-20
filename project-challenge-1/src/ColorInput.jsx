@@ -6,7 +6,6 @@ const ColorInput = ({ color, setColor }) => {
       <label htmlFor="addColor"> Add Color Name</label>
       <input
         type="text"
-        role="search"
         id="addColor"
         placeholder="Add Color Name"
         value={color}

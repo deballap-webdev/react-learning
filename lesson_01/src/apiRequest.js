@@ -9,5 +9,4 @@ const apiRequest = async (url = "", optionsObj = null, errMsg = null) => {
     return errMsg;
   }
 };
-
 export default apiRequest;
