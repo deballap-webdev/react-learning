@@ -7,7 +7,7 @@ const Layout = ({ search, setSearch }) => {
   return (
     <div className="App">
       <Header title={"React JS Blog"} />
-      <Nav />
+      <Nav search={search} setSearch={setSearch} />
       <Outlet />
       <Footer />
     </div>
