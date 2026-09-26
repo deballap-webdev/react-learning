@@ -12,33 +12,7 @@ import { format } from "date-fns";
 import Layout from "./Layout";
 
 const App = () => {
-  const [posts, setPosts] = useState([
-    {
-      id: 1,
-      title: "My First Post",
-      datetime: "March 04, 2027, 11:17:36 AM",
-      body: "Lorem ispium dolor sit amet consecute adispicing elit. Quis con",
-    },
-    {
-      id: 2,
-      title: "My Second Post",
-      datetime: "March 04, 2027, 11:17:36 AM",
-      body: "Lorem ispium dolor sit amet consecute adispicing elit. Quis con",
-    },
-    {
-      id: 3,
-      title: "My Third Post",
-      datetime: "March 04, 2027, 11:17:36 AM",
-      body: "Lorem ispium dolor sit amet consecute adispicing elit. Quis con",
-    },
-    {
-      id: 4,
-      title: "My Fourth Post",
-      datetime: "March 04, 2027, 11:17:36 AM",
-      body: "Lorem ispium dolor sit amet consecute adispicing elit. Quis con",
-    },
-  ]);
-
+  const [posts, setPosts] = useState([]);
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [postTitle, setPostTitle] = useState("");
