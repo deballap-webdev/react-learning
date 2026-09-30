@@ -1,28 +1,11 @@
 {
-  "post": [
+  "posts": [
     {
-      "id": 1,
-      "title": "My First Post",
-      "datetime": "March 04, 2027, 11:17:36 AM",
-      "body": "Lorem ispium dolor sit amet consecute adispicing elit. Quis con"
-    },
-    {
-      "id": 2,
-      "title": "My Second Post",
-      "datetime": "March 04, 2027, 11:17:36 AM",
-      "body": "Lorem ispium dolor sit amet consecute adispicing elit. Quis con"
-    },
-    {
-      "id": 3,
-      "title": "My Third Post",
-      "datetime": "March 04, 2027, 11:17:36 AM",
-      "body": "Lorem ispium dolor sit amet consecute adispicing elit. Quis con"
-    },
-    {
-      "id": 4,
-      "title": "My Fourth Post",
-      "datetime": "March 04, 2027, 11:17:36 AM",
-      "body": "Lorem ispium dolor sit amet consecute adispicing elit. Quis con"
+      "id": "xJaMYwnv3uA",
+      "title": "Champions",
+      "datetime": "September 30, 2026 11:38:59 PM",
+      "body": "We are the Champions, We are the champions. "
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
