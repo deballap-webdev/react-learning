@@ -1,10 +1,10 @@
 {
   "posts": [
     {
-      "id": "xJaMYwnv3uA",
-      "title": "Champions",
-      "datetime": "September 30, 2026 11:38:59 PM",
-      "body": "We are the Champions, We are the champions. "
+      "id": "L152vM0FNSQ",
+      "title": "The Book",
+      "datetime": "October 02, 2026 11:22:38 AM",
+      "body": "I Read a book today"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
