@@ -6,7 +6,7 @@ const useAxiosFetch = (dataUrl) => {
   const [fetchError, setFetchError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  useState(() => {
+  useEffect(() => {
     const controller = new AbortController();
     let isMounted = true;
 

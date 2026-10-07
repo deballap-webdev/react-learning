@@ -1,16 +1,28 @@
 {
   "posts": [
     {
-      "id": "L152vM0FNSQ",
-      "title": "The Book",
-      "datetime": "October 02, 2026 11:22:38 AM",
-      "body": "I Read a book today"
+      "id": "XTMX1oF_hrw",
+      "title": "New Post",
+      "datetime": "October 07, 2026 2:41:50 PM",
+      "body": "Testing"
     },
     {
-      "id": "ZvR2aRl6kj0",
-      "title": "The Farm Land",
-      "datetime": "October 02, 2026 2:29:25 PM",
-      "body": "I went to a farm "
+      "id": "xguB7w7G3M8",
+      "title": "I Have a Lead",
+      "datetime": "October 07, 2026 2:41:41 PM",
+      "body": "Lead"
+    },
+    {
+      "id": "DyJwZrRUNEM",
+      "title": "React MileStone",
+      "datetime": "October 07, 2026 2:41:11 PM",
+      "body": "I'll soon remove my tutorial training wheels and build react stuff myself Yay!!"
+    },
+    {
+      "id": "zflhXhAiOgQ",
+      "title": "My Fourth Post",
+      "datetime": "October 07, 2026 2:55:18 PM",
+      "body": "This is my fourth post"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
